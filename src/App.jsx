@@ -5,7 +5,7 @@ import Footer from './Components/Footer/Footer';
 
 import HomePage from './Pages/Property/HomePage';
 
-import Single from './Pages/SingleHome/Single';
+
 import MainContact from './Pages/Contact/MainContact';
 import ForRent from './Pages/Rent/ForRent';
 import FAQs from './Pages/FAQs/FAQs';
@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/property" element={<HomePage />} />
-        <Route path="/single-home" element={<Single />} />
+        
         <Route path="/rent" element={<ForRent />} />
         <Route path="/sale" element={<ForSale />} />
         <Route path="/contact" element={<MainContact />} />
