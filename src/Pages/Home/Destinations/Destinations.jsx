@@ -6,11 +6,11 @@ import Destinations4 from './img/destinations4.jpeg';
 import Destinations5 from './img/destinations5.jpeg';
 
 const destinations = [
-    { name: 'Beautiful Beaches', image: Destinations1 },
-    { name: 'Mountain Retreat', image: Destinations2 },
-    { name: 'City Escape', image: Destinations3 },
-    { name: 'Countryside Charm', image: Destinations4 },
-    { name: 'Desert Oasis', image: Destinations5 },
+    { name: 'Beautiful Beaches - Bangalore', image: Destinations1 },
+    { name: 'Mountain Retreat - Bangalore', image: Destinations2 },
+    { name: 'City Escape - Bangalore', image: Destinations3 },
+    { name: 'Countryside Charm - Bangalore', image: Destinations4 },
+    { name: 'Desert Oasis - Bangalore', image: Destinations5 },
 ];
 
 const Destinations = () => {
@@ -25,7 +25,7 @@ const Destinations = () => {
                             alt={dest.name}
                             className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
                         />
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-black/50 via-transparent to-transparent text-white text-center py-4 z-10 opacity-0 transition-opacity duration-500 hover:opacity-100">
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-black/30 via-transparent to-transparent text-white text-center py-4 z-10 opacity-0 transition-opacity duration-500 hover:opacity-100">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold shadow-lg transform scale-75 transition-transform duration-500 hover:scale-100">
                                 {dest.name}
                             </h2>
@@ -43,7 +43,7 @@ const Destinations = () => {
                             alt={dest.name}
                             className="w-full h-[150px] sm:h-[200px] md:h-[250px] object-cover"
                         />
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-black/50 via-transparent to-transparent text-white text-center py-4 z-10 opacity-0 transition-opacity duration-500 hover:opacity-100">
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-black/30 via-transparent to-transparent text-white text-center py-4 z-10 opacity-0 transition-opacity duration-500 hover:opacity-100">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold shadow-lg transform scale-75 transition-transform duration-500 hover:scale-100">
                                 {dest.name}
                             </h2>

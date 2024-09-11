@@ -3,6 +3,7 @@ import axios from 'axios';
 import { MdBedroomParent, MdBathroom } from 'react-icons/md';
 import { AiOutlineArrowsAlt } from 'react-icons/ai';
 import { Link } from 'react-router-dom'; // Import Link for navigation
+import HomeImg from '../../../assets/Images/Home-img/slider1.jpeg';
 
 const placeholderImage = 'https://via.placeholder.com/200'; // Placeholder image URL
 
@@ -37,28 +38,27 @@ const Properties = () => {
     };
 
     return (
-        <div className="bg-gray-100 py-10 px-5 md:px-20">
-            <h1 className="text-black font-semibold  text-1xl md:text-4xl mb-8 text-left leading-tight">
+        <div className="bg-gray-100 py-6 px-4 md:px-8 m-8 border border-gray-300 rounded-lg shadow-md"> {/* Adjusted padding and margin */}
+            <h1 className="text-black font-semibold text-2xl md:text-4xl mb-8 text-left leading-tight">
                 Explore Our Properties
             </h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                 {properties.map((property) => (
                     <div
                         key={property.slug}
-                        className="flex flex-col border rounded-lg overflow-hidden shadow-lg bg-white mb-6"
+                        className="flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-lg bg-white mb-6"
                     >
 
-                        <h2 className="text-[18px] text-black px-4 py-2 font-normal">
+                        <h2 className="text-xl text-black px-4 py-2 font-normal">
                             {property.title}
                         </h2>
-
 
                         {/* Image and Details Section */}
                         <div className="flex flex-col sm:flex-row">
                             {/* Image Section */}
                             <div className="relative w-full sm:w-1/2">
                                 <img
-                                    src={`https://realtrust.techizebuilder.in/uploads/properties/${property.image}`}
+                                    src={HomeImg}
                                     alt={property.title}
                                     className="w-full h-44 object-cover"
                                     onError={(e) => e.target.src = placeholderImage} // Fallback to placeholder image on error
@@ -72,10 +72,10 @@ const Properties = () => {
                             </div>
 
                             {/* Text Details Section */}
-                            <div className="flex flex-col justify-between w-full sm:w-1/2 ">
+                            <div className="flex flex-col justify-between w-full sm:w-1/2">
                                 {/* Price and Type Section */}
-                                <div className="bg-blue-400 text-white px-4 py-2 mb-2">
-                                    <p className="text-lg font-bold">
+                                <div className="bg-[#68bef4] text-white px-4 py-2 mb-2">
+                                    <p className="text-lg">
                                         ₹{property.price.toLocaleString('en-IN')}
                                         <span> {capitalizeFirstLetter(property.type)}</span>
                                     </p>
@@ -84,7 +84,7 @@ const Properties = () => {
                                     {/* Description Section */}
                                     <p className="text-gray-700 p-2 mb-1" dangerouslySetInnerHTML={{ __html: property.description }}></p>
                                     {/* Link to More Details */}
-                                    <Link to={`/property/${property.slug}`} className='text-gray-700 p-2'>
+                                    <Link to={`/property/${property.slug}`} className='text-gray-700 hover:text-orange-500 p-2'>
                                         More Details
                                     </Link>
                                 </div>

@@ -95,17 +95,16 @@ const FindHome = () => {
         <div className="bg-gray-100 p-6 sm:p-8 md:p-10 lg:p-12">
             <div className="bg-white shadow-lg rounded-lg p-6 mx-auto w-full max-w-6xl">
                 
-
                 {/* Property Type Buttons */}
                 <div className="flex flex-wrap justify-center gap-4 mb-6">
                     {propertyTypes.map(type => (
                         <button
                             key={type.value}
                             onClick={() => handlePropertyTypeChange(type.value)}
-                            className={`py-2 px-6 rounded-full ${
+                            className={`py-2 px-6 rounded-full transition-colors duration-300 ease-in-out ${
                                 propertyType === type.value
-                                    ? 'bg-[rgb(236,137,77)] text-white'
-                                    : 'bg-[rgb(236,137,77)] text-white'
+                                    ? 'bg-yellow-700 text-white '
+                                    : 'bg-[rgb(240,140,58)] hover:bg-yellow-600 hover:text-white text-black'
                             }`}
                             style={{ cursor: 'pointer' }}
                         >
@@ -144,7 +143,7 @@ const FindHome = () => {
                                         onChange={handleBhkTypeChange}
                                         className="form-radio text-orange-500 border-orange-500 focus:ring-orange-500"
                                     />
-                                    <span className="ml-2 text-sm md:text-base">{bhk}</span>
+                                    <span className="ml-2 text-sm md:text-base hover:text-orange-500 transition-colors duration-300 ease-in-out">{bhk}</span>
                                 </label>
                             ))}
                         </div>
@@ -195,7 +194,7 @@ const FindHome = () => {
                 <div className="flex flex-col md:flex-row md:justify-between items-center mt-6">
                     <button
                         onClick={() => setShowMoreFilters(!showMoreFilters)}
-                        className="text-orange-600 flex items-center text-lg font-semibold hover:text-orange-700 focus:outline-none mb-4 md:mb-0"
+                        className="text-orange-600 flex items-center text-lg font-semibold   transition-colors duration-300 ease-in-out focus:outline-none mb-4 md:mb-0"
                     >
                         {showMoreFilters ? 'Less Filters' : 'Advanced Search Filters'}
                         {showMoreFilters ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
@@ -204,7 +203,7 @@ const FindHome = () => {
                         onClick={handleSearch}
                         disabled={isLoading}
                         className={`flex items-center py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-700 transition-colors duration-300 ease-in-out 
-                            ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[rgb(236,137,77)] text-white'}
+                            ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[rgb(236,137,77)] text-white hover:bg-yellow-500 hover:text-white'}
                         `}
                     >
                         {isLoading ? <FaSpinner className="animate-spin mr-2" /> : <FaSearch className="mr-2" />}

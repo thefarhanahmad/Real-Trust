@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ScheduleForm = () => {
-  const [propertyName, setPropertyName] = useState('Villa on Grand Avenue'); // Default value for property name
+  const [propertyName, setPropertyName] = useState('Villa on Grand Avenue');
   const [fullName, setFullName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [visitType, setVisitType] = useState('Bachelors Girl'); // Default value for visit type
+  const [companyName, setCompanyName] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -13,7 +15,9 @@ const ScheduleForm = () => {
     // Store values in localStorage
     localStorage.setItem('propertyName', propertyName);
     localStorage.setItem('fullName', fullName);
-    localStorage.setItem('phoneNumber', phoneNumber);
+    localStorage.setItem('email', email);
+    localStorage.setItem('visitType', visitType);
+    localStorage.setItem('companyName', companyName);
 
     // Navigate to the confirmation page
     navigate('/scheduleconfirmation');
@@ -52,13 +56,42 @@ const ScheduleForm = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="phone-number" className="block text-black mb-2">Phone Number:</label>
+          <label htmlFor="email" className="block text-black mb-2">Email:</label>
           <input 
-            type="tel" 
-            id="phone-number" 
-            name="phone-number" 
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            type="email" 
+            id="email" 
+            name="email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required 
+            className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="visit-type" className="block text-black mb-2">Visit Type:</label>
+          <select 
+            id="visit-type" 
+            name="visit-type" 
+            value={visitType}
+            onChange={(e) => setVisitType(e.target.value)}
+            required 
+            className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          >
+            <option value="Bachelors Girl">Bachelors Girl</option>
+            <option value="Bachelors Boy">Bachelors Boy</option>
+            <option value="Family">Family</option>
+          </select>
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="company-name" className="block text-black mb-2">Company Name:</label>
+          <input 
+            type="text" 
+            id="company-name" 
+            name="company-name" 
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
             required 
             className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" 
           />
@@ -66,7 +99,7 @@ const ScheduleForm = () => {
 
         <button 
           type="submit" 
-          className="w-full py-2 px-4 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          className="w-full py-2 px-4 bg-yellow-500 text-white font-semibold rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         >
           Schedule a Visit
         </button>
