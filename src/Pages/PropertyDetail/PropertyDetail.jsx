@@ -91,10 +91,10 @@ const PropertyDetail = () => {
                 {capitalizeFirstLetter(property.purpose)}
               </button>
               {/* Price and Type */}
-              <div className="flex items-center bg-blue-300 text-gray-800 px-3">
-                <span className="text-lg">₹{property.price.toLocaleString('en-IN')}</span>
-                <span className="mx-1 text-gray-600" style={{ fontSize: '30px' }}>-</span>
-                <span className="text-lg">{capitalizeFirstLetter(property.type)}</span>
+              <div className="flex items-center py-1 bg-[#54caee] text-white px-4">
+                <span className="text-lg font-semibold">₹{property.price.toLocaleString('en-IN')}</span>
+                <span className="mx-1 " style={{ fontSize: '24px' }}>-</span>
+                <span className="text-md ">{capitalizeFirstLetter(property.type)}</span>
               </div>
             </div>
           </div>
