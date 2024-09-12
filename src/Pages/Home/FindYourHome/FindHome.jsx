@@ -92,8 +92,8 @@ const FindHome = () => {
     };
 
     return (
-        <div className="bg-gray-100 p-6 sm:p-8 md:p-10 lg:p-12">
-            <div className="bg-white shadow-lg rounded-lg p-6 mx-auto w-full max-w-6xl">
+        <div className="bg-gray-100 p-6 sm:p-8 md:p-10 lg:p-12 min-w-[320px]  "> {/* Added border classes */}
+            <div className="bg-white shadow-lg rounded-lg p-6 mx-auto w-full max-w-6xl border border-gray-300">
                 
                 {/* Property Type Buttons */}
                 <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -194,7 +194,7 @@ const FindHome = () => {
                 <div className="flex flex-col md:flex-row md:justify-between items-center mt-6">
                     <button
                         onClick={() => setShowMoreFilters(!showMoreFilters)}
-                        className="text-orange-600 flex items-center text-lg font-semibold   transition-colors duration-300 ease-in-out focus:outline-none mb-4 md:mb-0"
+                        className="text-orange-600 flex items-center text-lg font-semibold transition-colors duration-300 ease-in-out focus:outline-none mb-4 md:mb-0"
                     >
                         {showMoreFilters ? 'Less Filters' : 'Advanced Search Filters'}
                         {showMoreFilters ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
