@@ -18,6 +18,7 @@ import ScheduleConfirmation from './Pages/ScheduleForm/ScheduleConfirmation';
 import ForSale from './Pages/Sale/ForSale';
 
 import Detail from './Pages/PropertyDetail/Detail';
+import AddProperty from './Profile/Owner/Properties/AddProperty/AddProperty';
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
         <Route path="/scheduleconfirmation" element={<ScheduleConfirmation />} />
         
         <Route path="/property/:slug" element={<Detail />} />
-
+        <Route path="/add-property" element={<AddProperty />} />
 
       </Routes>
       <Footer />

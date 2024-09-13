@@ -118,19 +118,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 font-medium mb-2" htmlFor="referralCode">
-                                Referral Code (Optional)
-                            </label>
-                            <input
-                                id="referralCode"
-                                type="text"
-                                value={referralCode}
-                                onChange={(e) => setReferralCode(e.target.value)}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                                placeholder="Enter Referral Code (Optional)"
-                            />
-                        </div>
+                       
                         <button
                             type="submit"
                             className="w-full bg-yellow-600 text-white py-3 rounded-lg hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
