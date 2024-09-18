@@ -1,7 +1,14 @@
-// src/components/Notifications.js
+
 import React from 'react';
 
-const Notifications = ({ notifications, onMarkAsRead }) => {
+// Placeholder notifications data
+const placeholderNotifications = [
+    { id: 1, title: 'New Property Listed', message: 'A new property has been listed in your area.', read: false },
+    { id: 2, title: 'Maintenance Reminder', message: 'Your property requires maintenance this week.', read: true },
+    { id: 3, title: 'New Request Received', message: 'You have received a new request from a prospective tenant.', read: false },
+];
+
+const Notifications = ({ notifications = placeholderNotifications, onMarkAsRead }) => {
     return (
         <div className="bg-gray-100 p-4 md:p-6 rounded-lg shadow-md">
             <h2 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Notifications</h2>

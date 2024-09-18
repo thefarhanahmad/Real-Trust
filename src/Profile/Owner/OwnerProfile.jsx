@@ -5,9 +5,11 @@ import Properties from './Properties/Properties';
 import Requests from './Requests/Requests';
 import Settings from './Settings/Settings';
 import Notifications from './Notifications/Notifications';
-import AddProperty from '../Owner/Properties/AddProperty/AddProperty'
+import AddProperty from '../Owner/Properties/AddProperty/AddProperty';
+import { FaBars } from 'react-icons/fa'; // Import hamburger icon
 
 const OwnerProfile = () => {
+    const [activeSection, setActiveSection] = useState('overview');
     const [profileData, setProfileData] = useState({
         fullName: '',
         email: '',
@@ -17,112 +19,90 @@ const OwnerProfile = () => {
         pendingRequests: 0,
         profileImage: '',
     });
-
-    const [activeSection, setActiveSection] = useState('overview');
-    const [requestHistory, setRequestHistory] = useState([]);
-    const [properties, setProperties] = useState([]);
-    const [notifications, setNotifications] = useState([]);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar open by default for desktop
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('fullName') && localStorage.getItem('email');
-        if (!isAuthenticated) {
-            alert('Please log in to access this page.');
-            return;
-        }
+        const handleResize = () => setIsMobile(window.innerWidth < 1024);
 
-        const fetchedData = {
-            fullName: localStorage.getItem('fullName') || '',
-            email: localStorage.getItem('email') || '',
-            phoneNumber: localStorage.getItem('phoneNumber') || '',
-            propertiesOwned: 15, // Example data
-            propertiesManaged: 30, // Example data
-            pendingRequests: 7, // Example data
-            profileImage: localStorage.getItem('profileImage') || 'https://via.placeholder.com/150',
-        };
-        setProfileData(fetchedData);
+        // Fetch user data from localStorage or an API
+        const fullName = localStorage.getItem('fullName') || 'John Doe';
+        const email = localStorage.getItem('email') || 'example@example.com';
+        const phoneNumber = localStorage.getItem('phoneNumber') || '123-456-7890';
+        const profileImage = localStorage.getItem('profileImage') || 'https://via.placeholder.com/150';
 
-        setRequestHistory([
-            { id: 1, date: '2024-08-24', type: 'Maintenance', status: 'Completed' },
-            { id: 2, date: '2024-08-20', type: 'Inspection', status: 'Pending' },
-        ]);
+        setProfileData({
+            fullName,
+            email,
+            phoneNumber,
+            propertiesOwned: 15, // Simulated data
+            propertiesManaged: 30, // Simulated data
+            pendingRequests: 7, // Simulated data
+            profileImage,
+        });
 
-        setProperties([
-            { id: 1, name: 'Ocean View Villa', image: 'https://via.placeholder.com/150', details: 'A beautiful villa with ocean views.' },
-            { id: 2, name: 'Mountain Cabin', image: 'https://via.placeholder.com/150', details: 'Cozy cabin in the mountains.' },
-            { id: 3, name: 'Urban Apartment', image: 'https://via.placeholder.com/150', details: 'Modern apartment in the city.' },
-        ]);
-
-        setNotifications([
-            { id: 1, title: 'New Property Added', message: 'A new property has been added to your list.', read: false },
-            { id: 2, title: 'Maintenance Request', message: 'You have a new maintenance request.', read: false },
-        ]);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleLogout = () => {
-        localStorage.clear();
-        alert('You have been logged out. Please log in again.');
-    };
-
-    const handleNavClick = (section) => {
+    const handleSectionChange = (section) => {
         setActiveSection(section);
+        if (isMobile) setIsSidebarOpen(false); // Hide sidebar on mobile when a section is clicked
     };
 
-    const handleAddProperty = (newProperty) => {
-        setProperties([
-            ...properties,
-            {
-                id: properties.length + 1,
-                name: newProperty.name,
-                image: newProperty.imageUrl,
-                details: newProperty.details,
-            }
-        ]);
-        alert('Property added successfully!');
+    const handleLogout = () => {
+        localStorage.removeItem('access_token');
+        window.location.reload();
     };
 
-    const unreadCount = notifications.filter(notification => !notification.read).length;
+    const handleAddPropertyClick = () => {
+        setActiveSection('add-property'); // Set the active section to 'add-property'
+    };
 
-    const markAsRead = (id) => {
-        setNotifications(notifications.map(notification =>
-            notification.id === id ? { ...notification, read: true } : notification
-        ));
+    const renderContent = () => {
+        switch (activeSection) {
+            case 'overview':
+                return <Overview profileData={profileData} />;
+            case 'properties':
+                return <Properties properties={profileData.propertiesOwned} onAddPropertyClick={handleAddPropertyClick} />;
+            case 'requests':
+                return <Requests requestHistory={profileData.pendingRequests} />;
+            case 'settings':
+                return <Settings profileData={profileData} />;
+            case 'notifications':
+                return <Notifications notifications={profileData.notifications} />;
+            case 'add-property':
+                return <AddProperty />;
+            default:
+                return <Overview profileData={profileData} />;
+        }
     };
 
     return (
-        <div className="flex min-h-screen mt-20 bg-gray-100">
-            <Sidebar
-                activeSection={activeSection}
-                onNavClick={handleNavClick}
-                onLogout={handleLogout}
-                unreadCount={unreadCount}
-                profileData={profileData}
-            />
-            <main className="flex-1 bg-gray-100 p-4 md:p-12">
-                <div className="bg-white shadow-lg rounded-lg p-4 md:p-8 max-w-full md:max-w-4xl mx-auto">
-                    <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 md:mb-8">Owner Dashboard</h1>
-
-                    <div className="transition-all duration-300">
-                        {activeSection === 'overview' && (
-                            <Overview profileData={profileData} />
-                        )}
-                        {activeSection === 'properties' && (
-                            <Properties properties={properties} />
-                        )}
-                        {activeSection === 'requests' && (
-                            <Requests requestHistory={requestHistory} />
-                        )}
-                        {activeSection === 'settings' && (
-                            <Settings />
-                        )}
-                        {activeSection === 'add-property' && (
-                            <AddProperty onAddProperty={handleAddProperty} />
-                        )}
-                        {activeSection === 'notifications' && (
-                            <Notifications notifications={notifications} onMarkAsRead={markAsRead} />
-                        )}
-                    </div>
+        <div className={`flex flex-col lg:flex-row bg-gray-200 mt-20`}>
+            {isMobile && (
+                <div className="lg:hidden flex justify-between p-6 bg-white">
+                    <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                        <FaBars className="text-2xl text-yellow-700" />
+                    </button>
                 </div>
-            </main>
+            )}
+
+            <Sidebar
+                isSidebarOpen={isSidebarOpen}
+                activeSection={activeSection}
+                onNavClick={handleSectionChange}
+                onLogout={handleLogout}
+                profileData={profileData}
+                onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+                onAddPropertyClick={handleAddPropertyClick}
+            />
+
+            <div
+                className={`flex-1 lg:p-20 p-6 transition-all duration-300 ${isMobile && isSidebarOpen ? 'hidden' : 'block'}`}
+            >
+                {renderContent()}
+            </div>
         </div>
     );
 };

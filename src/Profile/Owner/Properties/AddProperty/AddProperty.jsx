@@ -18,13 +18,13 @@ const AddProperty = () => {
     };
 
     return (
-        <div className="bg-gray-50 p-4 rounded-lg shadow-md max-w-7xl mx-auto mt-14">
+        <div className="bg-gray-50 p-4 rounded-lg shadow-md max-w-7xl ">
             <form onSubmit={handleSubmit}>
                 {step === 1 && (
-                    <div className="space-y-4">
+                    <div className="space-y-4 ">
                         <h2 className='text-lg mb-10 font-semibold text-black '> Create Your Property</h2>
                         <div>
-                            <label className="block text-gray-700">Property Title</label>
+                            <label className="block  text-gray-700">Property Title</label>
                             <input
                                 type="text"
                                 className="w-full p-2 border border-gray-300 rounded mt-1"
