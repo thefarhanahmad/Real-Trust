@@ -105,7 +105,7 @@ const OwnerProfile = () => {
       />
 
       <div
-        className={`flex-1 lg:p-20 p-6 transition-all duration-300 ${
+        className={`flex-1 lg:p-20 p-6 lg:mt-0 -mt-14 transition-all duration-300 ${
           isMobile && isSidebarOpen ? "hidden" : "block"
         }`}
       >

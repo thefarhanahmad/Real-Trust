@@ -275,7 +275,7 @@ const FindHome = () => {
                             ${
                               isLoading
                                 ? "bg-gray-500 cursor-not-allowed"
-                                : "bg-[rgb(236,137,77)] text-white hover:bg-yellow-500 hover:text-white"
+                                : "bg-yellow-600 hover:bg-yellow-700 text-white hover:text-white"
                             }
                         `}
           >

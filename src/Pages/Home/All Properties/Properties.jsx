@@ -68,7 +68,7 @@ const Properties = () => {
                     onError={(e) => (e.target.src = placeholderImage)} // Fallback to placeholder image on error
                   />
                   {/* Schedule Button */}
-                  <button className="absolute sm:bottom-0 left-0 w-full text-white bg-orange-400 text-sm font-medium px-3 py-2">
+                  <button className="absolute sm:bottom-0 mt-2 sm:mt-0 left-0 w-full text-white bg-orange-400 text-sm font-medium px-3 py-2">
                     Schedule
                   </button>
                 </div>
