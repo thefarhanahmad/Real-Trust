@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import slider1 from '../../../assets/Images/Home-img/slider1.jpeg';
-import slider2 from '../../../assets/Images/Home-img/slider2.jpeg';
-import slider3 from '../../../assets/Images/Home-img/slider3.jpeg';
-import slider4 from '../../../assets/Images/Home-img/slider4.jpeg';
-
+import React, { useState, useEffect } from "react";
+import slider1 from "../../../assets/Images/Home-img/slider1.jpeg";
+import slider2 from "../../../assets/Images/Home-img/slider2.jpeg";
+import slider3 from "../../../assets/Images/Home-img/slider3.jpeg";
+import slider4 from "../../../assets/Images/Home-img/slider4.jpeg";
+import FindHomeButton from "../../../Components/FindHomeBtn";
 
 const images = [slider1, slider2, slider3, slider4];
 
@@ -27,6 +27,7 @@ const Slider = () => {
 
   return (
     <div className="relative w-full mt-20">
+      <FindHomeButton />
       <div className="relative w-full overflow-hidden">
         <button
           className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10"
@@ -46,10 +47,6 @@ const Slider = () => {
           &#10095;
         </button>
       </div>
-
-      
-
-      
     </div>
   );
 };

@@ -69,7 +69,7 @@ const ScheduleForm = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="visit-type" className="block text-black mb-2">Visit Type:</label>
+          <label htmlFor="visit-type" className="block text-black mb-2"> Tenant Type:</label>
           <select 
             id="visit-type" 
             name="visit-type" 
