@@ -50,7 +50,7 @@ const Sidebar = ({
 
   return (
     <div
-      className={`sticky top-0  left-0 z-30 p-4 pt-10  bg-black text-white transition-transform duration-300 ${
+      className={`sticky top-0  left-0 z-30 p-4 pt-10  bg-[#131313] text-white transition-transform duration-300 ${
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       } md:translate-x-0 md:w-66 md:block md:sticky md:top-20`}
       style={{

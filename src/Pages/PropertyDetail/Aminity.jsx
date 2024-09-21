@@ -39,27 +39,63 @@ const Amenities = () => {
   const visibleAmenities = showAll ? amenities : amenities.slice(0, 9);
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md border relative">
-      <h2 className="text-lg font-semibold text-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2">
-        Society Amenities
-      </h2>
-      <div className="grid grid-cols-3 gap-5 mt-8">
-        {visibleAmenities.map((amenity, index) => (
-          <div key={index} className="flex flex-col items-center">
-            {amenity.icon}
-            <span>{amenity.text}</span>
-          </div>
-        ))}
+    // For mobile
+    <>
+      <div className="p-4 sm:hidden bg-white rounded-lg shadow-md border relative">
+        <h2 className="text-lg font-semibold text-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2">
+          Society Amenities
+        </h2>
+        <div className="grid sm:grid-cols-4 grid-cols-3 gap-5 mt-8">
+          {visibleAmenities.map((amenity, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-center  text-[#262525] items-center"
+            >
+              <span className="w-full items-center justify-center">
+                {amenity.icon}
+              </span>
+              <span className="w-full items-center justify-center">
+                {amenity.text}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6  flex justify-center items-center">
+          <button
+            className=" text-orange-600 font-semibold hover:text-orange-700 hover:underline"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? "Show less" : "View all"}
+          </button>
+        </div>
       </div>
-      <div className="mt-6  flex justify-center items-center">
-        <button
-          className=" text-indigo-600 hover:underline"
+
+      {/* for large device */}
+      <div className="p-4 hidden sm:block bg-white rounded-lg shadow-md border relative">
+        <h2 className="text-lg font-semibold text-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2">
+          Society Amenities
+        </h2>
+        <div className="grid sm:grid-cols-4 grid-cols-3 gap-5 mt-8">
+          {amenities.map((amenity, index) => (
+            <div
+              key={index}
+              className="flex flex-col text-[#262525] items-center"
+            >
+              {amenity.icon}
+              <span>{amenity.text}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6  flex justify-center items-center">
+          {/* <button
+          className="flex sm:hidden text-indigo-600 hover:underline"
           onClick={() => setShowAll(!showAll)}
         >
           {showAll ? "Show less" : "View all"}
-        </button>
+        </button> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

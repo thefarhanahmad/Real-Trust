@@ -68,7 +68,7 @@ const Properties = () => {
                     onError={(e) => (e.target.src = placeholderImage)} // Fallback to placeholder image on error
                   />
                   {/* Schedule Button */}
-                  <button className="absolute sm:bottom-0  left-0 w-full text-white bg-orange-400 text-sm font-medium px-3 py-2">
+                  <button className="absolute sm:bottom-0 left-0 w-full text-white bg-orange-400 text-sm font-medium px-3 py-2">
                     Schedule
                   </button>
                 </div>
@@ -100,13 +100,13 @@ const Properties = () => {
               </div>
 
               {/* Property Details as Pills */}
-              <div className="flex flex-wrap gap-4 text-gray-600 border-t border-gray-200 bg-gray-100  p-2 mt-4 md:justify-center">
+              <div className="sm:flex  grid grid-cols-2 grid-rows-2 flex-wrap gap-4 text-gray-600 border-t border-gray-200 bg-gray-100  p-2 mt-4 md:justify-center">
                 {/* Bedroom */}
                 <div className="flex items-center   text-sm md:text-base">
                   <MdBedroomParent size={20} className="mr-2" />
                   <span className="flex items-center">
                     {property.bedroom} Bedrooms
-                    <div className="border-l border-gray-400 h-6 mx-2" />
+                    <div className="border-l  border-gray-400 h-6 mx-2" />
                   </span>
                 </div>
                 {/* Bathroom */}
@@ -114,7 +114,7 @@ const Properties = () => {
                   <MdBathroom size={20} className="mr-2" />
                   <span className="flex items-center">
                     {property.bathroom} Bathrooms
-                    <div className="border-l border-gray-400 h-6 mx-2" />
+                    <div className="sm:border-l  border-0 border-gray-400 h-6 mx-2" />
                   </span>
                 </div>
                 {/* Area */}
@@ -122,7 +122,7 @@ const Properties = () => {
                   <AiOutlineArrowsAlt size={20} className="mr-2" />
                   <span className="flex items-center">
                     {property.area} sq ft
-                    <div className="border-l border-gray-400 h-6 mx-2" />
+                    <div className="border-l  border-gray-400 h-6 mx-2" />
                   </span>
                 </div>
 

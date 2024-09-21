@@ -134,10 +134,10 @@ const FindHome = () => {
             <button
               key={type.value}
               onClick={() => handlePropertyTypeChange(type.value)}
-              className={`py-2 px-6 rounded-full transition-colors duration-300 ease-in-out ${
+              className={`py-2 px-7 text-lg -ml-2  rounded-full transition-colors duration-300 ease-in-out ${
                 propertyType === type.value
                   ? "bg-yellow-500 text-white "
-                  : "bg-[rgb(240,140,58)] hover:bg-yellow-600 hover:text-white text-white"
+                  : "bg-yellow-600 hover:bg-yellow-700 hover:text-white text-black"
               }`}
               style={{ cursor: "pointer" }}
             >

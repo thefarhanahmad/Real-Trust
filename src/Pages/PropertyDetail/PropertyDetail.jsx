@@ -62,7 +62,7 @@ const PropertyDetail = () => {
   }
 
   return (
-    <div className="w-full p-4 mt-12 lg:p-12">
+    <div className="w-full p-4 mt-12 lg:p-12 ">
       <div className="bg-white shadow-lg border border-gray-300 rounded-lg w-full">
         <div className="relative mb-2 p-4 md:p-6">
           <img

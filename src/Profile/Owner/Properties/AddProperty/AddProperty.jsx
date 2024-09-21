@@ -35,7 +35,7 @@ const AddProperty = () => {
                 required
               />
             </div>
-            <div>
+            {/* <div>
               <label className="block text-gray-700">Add Property</label>
               <select
                 className="w-full p-2 border border-gray-300 rounded mt-1"
@@ -48,7 +48,7 @@ const AddProperty = () => {
                 <option value="option-2">option 2</option>
                 <option value="option-3">option 3</option>
               </select>
-            </div>
+            </div> */}
             <div>
               <label className="block text-gray-700">Furnish Type</label>
               <select
@@ -63,7 +63,7 @@ const AddProperty = () => {
                 <option value="unfurnished">Unfurnished</option>
               </select>
             </div>
-            <div>
+            {/* <div>
               <label className="block text-gray-700">City</label>
               <input
                 type="text"
@@ -71,8 +71,22 @@ const AddProperty = () => {
                 placeholder="Enter city"
                 required
               />
-            </div>
+            </div> */}
             <div>
+              <label className="block text-gray-700">Select City</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded mt-1"
+                required
+              >
+                <option value="" disabled>
+                  Please select
+                </option>
+                <option value="option-1">option 1</option>
+                <option value="option-2">option 2</option>
+                <option value="option-3">option 3</option>
+              </select>
+            </div>
+            {/* <div>
               <label className="block text-gray-700">Locality</label>
               <input
                 type="text"
@@ -80,8 +94,22 @@ const AddProperty = () => {
                 placeholder="Enter locality"
                 required
               />
-            </div>
+            </div> */}
             <div>
+              <label className="block text-gray-700">Locality</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded mt-1"
+                required
+              >
+                <option value="" disabled>
+                  Please select
+                </option>
+                <option value="option-1">option 1</option>
+                <option value="option-2">option 2</option>
+                <option value="option-3">option 3</option>
+              </select>
+            </div>
+            {/* <div>
               <label className="block text-gray-700">Society Name</label>
               <input
                 type="text"
@@ -89,6 +117,20 @@ const AddProperty = () => {
                 placeholder="Enter society name"
                 required
               />
+            </div> */}
+            <div>
+              <label className="block text-gray-700">Society Name</label>
+              <select
+                className="w-full p-2 border border-gray-300 rounded mt-1"
+                required
+              >
+                <option value="" disabled>
+                  Please select
+                </option>
+                <option value="option-1">option 1</option>
+                <option value="option-2">option 2</option>
+                <option value="option-3">option 3</option>
+              </select>
             </div>
             {/* <div>
               <label className="block text-gray-700">Area</label>
