@@ -41,7 +41,7 @@ const Amenities = () => {
   return (
     // For mobile
     <>
-      <div className="p-4 sm:hidden bg-white rounded-lg shadow-md border relative">
+      <div className="p-4 sm:hidden bg-white rounded-lg shadow-md border border-gray-300 relative">
         <h2 className="text-lg font-semibold text-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2">
           Society Amenities
         </h2>
@@ -71,7 +71,7 @@ const Amenities = () => {
       </div>
 
       {/* for large device */}
-      <div className="p-4 hidden sm:block bg-white rounded-lg shadow-md border relative">
+      <div className="p-4 hidden sm:block bg-white rounded-lg border-gray-300 shadow-md border relative">
         <h2 className="text-lg font-semibold text-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2">
           Society Amenities
         </h2>

@@ -11,6 +11,7 @@ import {
   FaEnvelope,
   FaLine,
 } from "react-icons/fa";
+import { VscDebugBreakpointDataUnverified } from "react-icons/vsc";
 
 import { FaCheck } from "react-icons/fa";
 import floorImg from "./floor-plan-00.jpg";
@@ -60,6 +61,26 @@ const PropertyDetail = () => {
   if (error) {
     return <div className="text-center text-red-600">{error}</div>;
   }
+
+  // properties data
+  const properties_data = [
+    "APPLIANCES: Built-In & Freestanding Range, Dishwasher",
+    "BATHROOM DESCRIPTION: Shower Over Tub, Tile Walls",
+    "BEDROOM FEATURES: Main Floor Bedroom, Master Suite, Walk-In Closet",
+    "DINING AREA: Living/Dining Combo",
+    "DOORS & WINDOWS: Bay Window",
+    "ENTRY LOCATION: Ground Level - no steps",
+    "EXTERIOR CONSTRUCTION: Stucco",
+    "FIREPLACE FUEL: Uses Gas Only",
+    "FIREPLACE LOCATION: Living Room",
+    "FLOORS: Ceramic Tile, Vinyl Tile",
+    "GARAGE/PARKING: Attached Garage",
+    "HEATING: Forced Air",
+    "KITCHEN: Breakfast Nook, Island, Pantry",
+    "LAUNDRY: Gas Hookup, In Garage",
+    "LIVING ROOM: View - City Lights",
+    "LOCATION: Located in a Quiet Neighborhood",
+  ];
 
   return (
     <div className="w-full p-4 mt-12 lg:p-12 ">
@@ -162,59 +183,22 @@ const PropertyDetail = () => {
           ></p>
         </div>
 
-        <div className="mb-10 px-4 md:px-6">
+        <div className="mb-10 px-2 md:px-4">
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
             Additional Details
           </h2>
-          <div className="space-y-2">
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              APPLIANCES: Built-In & Freestanding Range, Dishwasher
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              BATHROOM DESCRIPTION: Shower Over Tub, Tile Walls
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              BEDROOM FEATURES: Main Floor Bedroom, Master Suite, Walk-In Closet
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              DINING AREA: Living/Dining Combo
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              DOORS & WINDOWS: Bay Window
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              ENTRY LOCATION: Ground Level - no steps
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              EXTERIOR CONSTRUCTION: Stucco
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              FIREPLACE FUEL: Uses Gas Only
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              FIREPLACE LOCATION: Living Room
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              FLOORS: Ceramic Tile, Vinyl Tile
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              GARAGE/PARKING: Attached Garage
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              HEATING: Forced Air
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              KITCHEN: Breakfast Nook, Island, Pantry
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              LAUNDRY: Gas Hookup, In Garage
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              LIVING ROOM: View - City Lights
-            </p>
-            <p className="px-2 py-2 hover:bg-gray-100 border-t border-gray-300">
-              LOCATION: Located in a Quiet Neighborhood
-            </p>
+          <div className="bg-white rounded-lg shadow-md border border-gray-300  gap-3  justify-between  p-4 flex flex-wrap w-full">
+            {properties_data?.map((detail, i) => {
+              return (
+                <div
+                  key={i}
+                  className="flex text-[#262525] text-sm items-baseline gap-1 justify-start w-[45%] "
+                >
+                  <VscDebugBreakpointDataUnverified size={15} />
+                  <span className="">{detail}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -281,7 +265,7 @@ const PropertyDetail = () => {
             </li>
           </ul>
         </div> */}
-        <div className="bg-white px-4 py-2">
+        <div className="bg-white px-2 md:px-4  py-2">
           <Amenities />
         </div>
 

@@ -7,6 +7,7 @@ import Settings from "./Settings/Settings";
 import Notifications from "./Notifications/Notifications";
 import AddProperty from "../Owner/Properties/AddProperty/AddProperty";
 import { FaBars } from "react-icons/fa"; // Import hamburger icon
+import TenantVerify from "./TenantVerify/TenantVerify";
 
 const OwnerProfile = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -64,6 +65,8 @@ const OwnerProfile = () => {
     switch (activeSection) {
       case "overview":
         return <Overview profileData={profileData} />;
+      case "tenant_verification":
+        return <TenantVerify profileData={profileData} />;
       case "properties":
         return (
           <Properties

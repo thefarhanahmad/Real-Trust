@@ -5,7 +5,7 @@ import ScheduleForm from "../ScheduleForm/ScheduleForm";
 const Detail = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row gap-4 py-6  mt-2">
+      <div className="flex flex-col md:flex-row gap-4 py-6 mt-2">
         <div className="flex-1">
           <PropertyDetail />
         </div>

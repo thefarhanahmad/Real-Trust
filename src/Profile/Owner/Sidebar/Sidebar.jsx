@@ -11,6 +11,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { MdOutlineVerifiedUser } from "react-icons/md";
 
 const Sidebar = ({
   activeSection,
@@ -44,6 +45,11 @@ const Sidebar = ({
     { id: "overview", icon: <FaHome />, label: "Overview" },
     { id: "properties", icon: <FaBuilding />, label: "Properties" },
     { id: "requests", icon: <FaClipboardList />, label: "Requests" },
+    {
+      id: "tenant_verification",
+      icon: <MdOutlineVerifiedUser />,
+      label: "Tenant verification",
+    },
     { id: "settings", icon: <FaCog />, label: "Settings" },
     { id: "notifications", icon: <FaBell />, label: "Notifications" },
   ];
