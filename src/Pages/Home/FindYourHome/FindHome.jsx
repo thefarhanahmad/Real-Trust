@@ -127,6 +127,9 @@ const FindHome = () => {
     <div className="bg-gray-100 p-6 sm:p-8 md:p-10 lg:p-12 min-w-[320px]  ">
       {" "}
       {/* Added border classes */}
+      <h1 className="text-black font-semibold text-lg sm:text-3xl text-center md:text-center w-full  mb-4 ">
+        Find Your Home
+      </h1>
       <div className="bg-white shadow-lg rounded-lg p-6 mx-auto w-full max-w-6xl border border-gray-300">
         {/* Property Type Buttons */}
         <div className="flex flex-wrap justify-start  w-full md:w-1/2 md:mx-auto gap-4 mb-6">
